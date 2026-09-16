@@ -2,11 +2,15 @@ require('dotenv').config();
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// ---- Serve static frontend (public/index.html, css, js, etc.) ----
+app.use(express.static(path.join(__dirname, "public")));
 
 // ---- MySQL connection using cloud DB credentials (env vars) ----
 const db = mysql.createConnection({
@@ -28,8 +32,8 @@ db.connect((err) => {
   console.log("✅ Connected to MySQL database");
 });
 
-// ---- Root route (fixes "Cannot GET /") ----
-app.get("/", (req, res) => {
+// ---- API health check (moved off root so the form can load at "/") ----
+app.get("/api/status", (req, res) => {
   res.send("Student Registration API is running 🚀");
 });
 
