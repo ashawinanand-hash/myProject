@@ -3,22 +3,21 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 
-
 const app = express();
 
-// Allow frontend (running on a different port/file) to talk to this server
 app.use(cors());
-// Parse incoming JSON request bodies
 app.use(express.json());
 
-// ---- MySQL connection config ----
-// Replace 'yourpassword' with the password you set in MySQL Workbench
+// ---- MySQL connection using cloud DB credentials (env vars) ----
 const db = mysql.createConnection({
-  host: "127.0.0.1",
-  port: 3306,
-  user: "root",
-  password : process.env.DB_PASSWORD,
-  database: "student_registration",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT || 3306,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: true
+  }
 });
 
 db.connect((err) => {
@@ -27,6 +26,11 @@ db.connect((err) => {
     return;
   }
   console.log("✅ Connected to MySQL database");
+});
+
+// ---- Root route (fixes "Cannot GET /") ----
+app.get("/", (req, res) => {
+  res.send("Student Registration API is running 🚀");
 });
 
 // ---- Route to handle form submission ----
@@ -48,7 +52,13 @@ app.post("/register", (req, res) => {
   });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
+// Local dev only — Vercel ignores this and uses the export below
+const PORT = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
+  });
+}
+
+// Required for Vercel to treat this as a serverless function
+module.exports = app;
