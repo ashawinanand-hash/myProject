@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #e1eaff 50%, #f3e8ff 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+#heading {
+  text-align: center;
+  color: #4a4a7a;
+  margin-bottom: 30px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.container {
+  width: 600px;
+  max-width: 100%;
+  margin: auto;
+  background: linear-gradient(160deg, #ffffff 0%, #f8faff 100%);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(120, 130, 200, 0.15);
+  border: 1px solid #eef1fb;
+}
+
+.form {
+  margin-bottom: 18px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+}
+
+.form input,
+.form textarea {
+  padding: 10px 12px;
+  width: calc(100% - 55px);
+  border: 1px solid #dde3f5;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fbfcff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #8ea6f7;
+  box-shadow: 0 0 0 3px rgba(142, 166, 247, 0.2);
+  background-color: #ffffff;
+}
+
+.form textarea {
+  height: 70px;
+  vertical-align: top;
+  resize: vertical;
+}
+
+.speak {
+  width: 40px;
+  height: 40px;
+  margin-left: 6px;
+  background: linear-gradient(135deg, #a5c9ff 0%, #c9a9ff 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  box-shadow: 0 3px 8px rgba(150, 150, 220, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.speak:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(150, 150, 220, 0.4);
+}
+
+.speak:active {
+  transform: scale(0.96);
+}
+
+#submit {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #7ee0c0 0%, #6fc7f0 100%);
+  color: #1f4a44;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 12px rgba(110, 200, 180, 0.3);
+}
+
+#submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(110, 200, 180, 0.4);
+}

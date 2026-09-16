@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form (STT)</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<h1 id="heading">Student Registration Form</h1>
+
+<div class="container">
+    <form>
+
+        <div class="form">
+            <label for="sname">Name</label>
+            <input type="text" id="sname" placeholder="Enter Student Name">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form">
+            <label for="fname">Father's Name</label>
+            <input type="text" id="fname" placeholder="Enter Father's Name">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form">
+            <label for="mname">Mother's Name</label>
+            <input type="text" id="mname" placeholder="Enter Mother's Name">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form" id="contact">
+            <label for="Contactno">Contact Number</label>
+            <input type="tel" id="Contactno" maxlength="10" placeholder="Enter Phone Number" minlength="10" maxlength="10">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form" id="mail">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Email">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <div class="form">
+            <label for="address">Address</label>
+            <textarea id="address" placeholder="Enter Address"></textarea>
+            <button type="button" class="speak">🎙️</button>
+        </div>
+
+        <button type="submit" id="submit">Submit</button>
+
+    </form>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
