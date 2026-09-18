@@ -67,9 +67,9 @@ recognition.onresult = function (event) {
   input.value = result;
 };
 
-// ---- Handle form submission: send data to backend ----
+
 document.querySelector("form").addEventListener("submit", function (e) {
-  e.preventDefault(); // stop normal page reload
+  e.preventDefault();
 
   const formData = {
     sname: document.getElementById("sname").value,
